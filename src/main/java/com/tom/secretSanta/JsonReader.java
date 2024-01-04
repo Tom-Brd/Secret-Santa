@@ -18,4 +18,10 @@ public class JsonReader {
             throw new IllegalArgumentException("Error reading file " + filename + ": " + e.getMessage());
         }
     }
+
+    private void validateJsonArray(JSONArray jsonArray) throws IllegalAccessException {
+        if (jsonArray.size() < 2) {
+            throw new IllegalAccessException("There must be at least 2 participants");
+        }
+    }
 }
