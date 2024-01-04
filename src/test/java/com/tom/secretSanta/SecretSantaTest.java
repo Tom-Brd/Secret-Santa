@@ -26,6 +26,16 @@ public class SecretSantaTest {
     }
 
     @Test
+    void testAssignParticipants_NoSelfAssignment() {
+        SecretSanta secretSanta = new SecretSanta(createSampleParticipants());
+        secretSanta.assignParticipants();
+
+        for (Participant participant : secretSanta.getParticipants()) {
+            assertNotEquals(participant, participant.getAssignedParticipant());
+        }
+    }
+
+    @Test
     void testAssignParticipants_UniqueAssignments() {
         SecretSanta secretSanta = new SecretSanta(createSampleParticipants());
         secretSanta.assignParticipants();
