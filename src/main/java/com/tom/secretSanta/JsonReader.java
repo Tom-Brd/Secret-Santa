@@ -1,10 +1,13 @@
 package com.tom.secretSanta;
 
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JsonReader {
     private JSONArray openJsonFile(String filename) throws IllegalAccessException {
@@ -23,5 +26,14 @@ public class JsonReader {
         if (jsonArray.size() < 2) {
             throw new IllegalAccessException("There must be at least 2 participants");
         }
+    }
+
+    private List<Participant> parseParticipants(JSONArray jsonArray) {
+        List<Participant> participants = new ArrayList<>();
+        for (Object object : jsonArray) {
+            JSONObject participantObject = (JSONObject) object;
+            participants.add(new Participant((String) participantObject.get("name"), (String) participantObject.get("email")));
+        }
+        return participants;
     }
 }
