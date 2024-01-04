@@ -5,6 +5,7 @@ import org.apache.commons.validator.routines.EmailValidator;
 public class Participant {
     private final String name;
     private final String email;
+    private Participant assignedParticipant;
 
     public Participant(String name, String email) {
         if (!isEmailValid(email)) {
@@ -24,5 +25,13 @@ public class Participant {
 
     private boolean isEmailValid(String email) {
         return EmailValidator.getInstance().isValid(email);
+    }
+
+    public void setAssignedParticipant(Participant participant) {
+        this.assignedParticipant = participant;
+    }
+
+    public Participant getAssignedParticipant() {
+        return this.assignedParticipant;
     }
 }
