@@ -10,6 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonReader {
+    public List<Participant> addParticipantsFromJson(String jsonFile) throws IllegalAccessException {
+        JSONArray jsonArray = openJsonFile(jsonFile);
+        validateJsonArray(jsonArray);
+        return parseParticipants(jsonArray);
+    }
+
     private JSONArray openJsonFile(String filename) throws IllegalAccessException {
         try (InputStream inputStream = JsonReader.class.getClassLoader().getResourceAsStream(filename)) {
             if (inputStream == null) {
