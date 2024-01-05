@@ -1,6 +1,5 @@
 # Secret Santa Project
 
-
 ## Description
 This is a simple project to automate the process of Secret Santa. 
 It will email each participant with the name of the person they are buying a gift for.
@@ -8,7 +7,7 @@ It will email each participant with the name of the person they are buying a gif
 ## Setup
 1. Clone the repo
 2. Create your list of participants in the `participants.txt` file (follow the example format in the file)
-3. In the `.env` file, add your email address and password (see below for more details)
+3. In the `.env` file, replace the `!CHANGE_ME!` with your email address and password
 
 ## How to get your email password
 You will need to create an app password for your email account. 
@@ -20,7 +19,7 @@ https://myaccount.google.com/apppasswords?rapt=AEjHL4NkHipO1EItd54q4tUY0Nc0VShlu
 To run the application, simply run the `Main` class.
 
 ## In case of errors
-If you get an error, please contact me at: `support@tom-bourlard.dev`
+If you get an error, please contact me at: [support@tom-bourlard.dev](mailto:)
 
 ## License
 MIT License
