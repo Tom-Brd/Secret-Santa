@@ -6,19 +6,27 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class EmailSender {
-    private final String username;
-    private final String password;
+    private final Dotenv dotenv = Dotenv.configure().filename(".env.local").ignoreIfMalformed().ignoreIfMissing().load();
+    private String username;
+    private String password;
 
     public EmailSender() {
-        Dotenv dotenv = Dotenv.configure().filename(".env.local").ignoreIfMalformed().ignoreIfMissing().load();
+        setUsername();
+        setPassword();
+    }
 
+    public EmailSender(Session sessionMock) {}
+
+    public void setUsername() {
         this.username = dotenv.get("USERNAME");
+    }
+
+    public void setPassword() {
         this.password = dotenv.get("PASSWORD");
     }
 
