@@ -27,4 +27,14 @@ public class SecretSanta {
         }
     }
 
+    public void sendEmails() {
+        EmailSender emailSender = new EmailSender();
+        for (Participant participant : this.participants) {
+            try {
+                emailSender.sendEmail(participant.getEmail(), "Secret Santa 2023", participant.messageBody());
+            } catch (Exception e) {
+                System.out.println("Error sending email to " + participant.getEmail());
+            }
+        }
+    }
 }
