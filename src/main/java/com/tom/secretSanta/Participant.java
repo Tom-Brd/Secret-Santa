@@ -34,4 +34,8 @@ public class Participant {
     public Participant getAssignedParticipant() {
         return this.assignedParticipant;
     }
+
+    public String messageBody() {
+        return "Heyy " + this.name + ",\n\nLa personne qui t'a été assignée pour le Secret Santa est " + this.assignedParticipant.getName() + " !";
+    }
 }
